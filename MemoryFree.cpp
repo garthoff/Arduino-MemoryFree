@@ -34,14 +34,14 @@ int freeListSize() {
   return total;
 }
 
-int freeMemory() {
+int freeMemory(bool skip_list) {
   int free_memory;
 
   if ((int)__brkval == 0) {
     free_memory = ((int)&free_memory) - ((int)&__heap_start);
   } else {
     free_memory = ((int)&free_memory) - ((int)__brkval);
-    free_memory += freeListSize();
+    if(!skip_list) free_memory += freeListSize();
   }
   return free_memory;
 }

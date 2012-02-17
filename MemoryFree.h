@@ -10,7 +10,7 @@
 extern "C" {
 #endif
 
-int freeMemory();
+int freeMemory(bool skip_list = false);
 
 #ifdef  __cplusplus
 }
